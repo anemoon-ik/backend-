@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <h3>Хале</h3>
     <div style="margin: 2em;">
+        <h3>Хале</h3>
         <table class="table table-image">
             <thead>
                 <tr>
@@ -38,6 +38,38 @@
             </tbody>
 
         </table>
+
+        <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            new post
+         </button>
+        <div class="collapse" id="collapseExample"> -->
+            <div class="card card-body">
+                <form method="post" action="/add_post/" >
+                    <div class="row g-3">
+                        {% csrf_token %}
+                        <div class="col-auto">
+                            <label for="moment">moment</label>
+                            <input type="file" class="form-control" id="moment" name="moment">
+                        </div>
+                        <div class="col-auto">
+                            <label for="name" >name</label>
+                            <input type="str" class="form-control-plaintext" id="name" name="name" value="snowdrop">
+                        </div>
+                        <div class="col-auto">
+                            <label for="year" >year</label>
+                            <input type="number" class="form-control-plaintext" id="year" name="year" value="2021">
+                        </div>
+                        <div class="col-auto">
+                            <label for="remembered" >remembered</label>
+                            <input type="str" style="min-width: 2em" class="form-control-plaintext" id="remembered" name="remembered" value="나는 항상 당신을 기억할 것입니다">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-success" >add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 <script>

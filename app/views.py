@@ -31,3 +31,16 @@ def delete(request: HttpRequest, id_: str) -> HttpResponse:
 #         cars = [kdrama for kdrama in kdramas if kdrama.id != UUID(id_)]
 #         return HttpResponse("", status=204)
 #     return redirect("/")
+
+def add_post(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":
+        kdramas.append(
+            Kdrama(
+                id=uuid4(),
+                moment=request.POST.get("moment", ""),
+                name=request.POST.get("name", ""),
+                year=request.POST.get("year", ""),
+                remembered=request.POST.get("remembered", "")
+            )
+        )
+    return redirect("/")
